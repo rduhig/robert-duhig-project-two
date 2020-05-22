@@ -1,0 +1,51 @@
+body {
+    font-family: $main-font;
+    font-size: 20px;
+    line-height: 32px;
+    color: $black;
+}
+
+h1, h2, h3, h4, a, button, .email {
+    font-family: $heading-font;
+}
+
+h1 {
+    font-size: 138px;
+}
+
+h2 {
+    font-size: 80px;
+    line-height: 92px;
+}
+
+h3 {
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+
+h4 {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+a {
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: 1px;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+        text-decoration-color: $decoration-color;
+    }
+}
+
+button {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 1px;
+}
+
+.email {
+    font-size: 26px;
+    letter-spacing: 1.1px;
+}
