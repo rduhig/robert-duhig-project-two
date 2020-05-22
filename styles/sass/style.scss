@@ -6,6 +6,84 @@ $off-white: #EFFDF3;
 $main-font: "Roboto", sans-serif;
 $heading-font: "Playfair Display", serif;
 
+@import "mixins";
 @import "setup";
 @import "typography";
 
+.wrapper {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+button {
+    background-color: $decoration-color;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+
+    &:hover, &:focus {
+        border-color: $black;
+    }
+}
+
+header {
+    width: 100%;
+    @include scale-size("height", 755, 555, 1600, 800);
+    // height: 755px;
+    background-image: url(../assets/header-image.jpg);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+
+    div {
+        height: 100%;
+        background-color: $shadow-color;
+        padding: 50px 0 50px 50px;
+        position: absolute;
+        top: 150px;
+        right: 0;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    & > span {
+        display: block;
+        position: relative;
+        @include scale-size("top", 600, 400, 1600, 800);
+        // top: 600px;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    nav {
+        position: absolute;
+        top: 30px;
+        right: 120px;
+
+        & > * {
+            margin-right: 40px;
+        }
+    }
+}
+
+section.about {
+    background-color: $off-white;
+    padding: 200px 0 150px;
+    @include scale-size("padding-right", 200, 10, 1600, 800);
+    @include scale-size("padding-left", 200, 10, 1600, 800);
+    text-align: center;
+
+    p {
+        margin: 30px 0;
+        text-align: left;
+    }
+}
+
+footer {
+    background-color: $black;
+    color: $white;
+    padding: 5px;
+    text-align: center;
+}

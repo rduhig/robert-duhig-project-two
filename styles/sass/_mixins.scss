@@ -1,0 +1,15 @@
+@mixin scale-size($property, $largest, $smallest, $max-width, $min-width) {
+    #{$property}: clamp($smallest * 1px, calc(#{$smallest} * 1px + (#{$largest} - #{$smallest}) * ((100vw - #{$min-width} * 1px) / (#{$max-width} - #{$min-width}))), $largest * 1px);
+}
+
+@mixin box-shadow($x, $y) {
+    content: '';
+    background-color: $shadow-color;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: translate($x * 1px, $y * 1px);
+}
