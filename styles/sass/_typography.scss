@@ -1,7 +1,8 @@
+/* ~~~~~~~~~~~~~~~~~~~~ TYPOGRAPHY ~~~~~~~~~~~~~~~~~~~~ */
+
 body {
     font-family: $main-font;
     @include scale-size("font-size", 20, 16, 1600, 800);
-    // font-size: 20px;
     line-height: 32px;
     color: $black;
 }
@@ -12,30 +13,25 @@ h1, h2, h3, h4, a, button, .current-page, .email {
 
 h1 {
     @include scale-size("font-size", 120, 60, 1600, 800);
-    // font-size: 138px;
 }
 
 h2 {
     @include scale-size("font-size", 80, 40, 1600, 800);
-    // font-size: 80px;
     line-height: 92px;
 }
 
 h3 {
     @include scale-size("font-size", 42, 28, 1600, 800);
-    // font-size: 42px;
     letter-spacing: 1px;
 }
 
 h4 {
     @include scale-size("font-size", 32, 22, 1600, 800);
-    // font-size: 32px;
     letter-spacing: 1px;
 }
 
 a, .current-page {
     @include scale-size("font-size", 20, 16, 1600, 800);
-    // font-size: 20px;
     line-height: 29px;
     letter-spacing: 1px;
     color: $black;
@@ -49,7 +45,6 @@ a:hover, a:focus, .current-page {
 
 button {
     @include scale-size("font-size", 20, 16, 1600, 800);
-    // font-size: 20px;
     line-height: 32px;
     letter-spacing: 1px;
 }
@@ -60,6 +55,5 @@ i {
 
 .email {
     @include scale-size("font-size", 26, 20, 1600, 800);
-    // font-size: 26px;
     letter-spacing: 1.1px;
 }

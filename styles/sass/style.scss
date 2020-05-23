@@ -5,6 +5,8 @@ $white: #FAFAFA;
 $off-white: #EFFDF3;
 $main-font: "Roboto", sans-serif;
 $heading-font: "Playfair Display", serif;
+$tablet-breakpoint: 980px;
+$mobile-breakpoint: 840px;
 
 @import "mixins";
 @import "setup";
@@ -38,7 +40,6 @@ button {
 header {
     width: 100%;
     @include scale-size("height", 755, 405, 1600, 800);
-    // height: 755px;
     background-image: url(../assets/header-image.jpg);
     background-size: cover;
     position: relative;
@@ -55,13 +56,16 @@ header {
         img {
             height: 100%;
         }
+
+        @media (max-width: $mobile-breakpoint) {
+            display: none;
+        }
     }
 
     & > span {
         display: block;
         position: relative;
         @include scale-size("top", 600, 320, 1600, 800);
-        // top: 600px;
         margin: 0 auto;
         z-index: 1;
     }
@@ -69,7 +73,6 @@ header {
     nav {
         position: absolute;
         top: 30px;
-        // right: 120px;
         @include scale-size("right", 120, 0, 1600, 1200);
 
         & > * {
@@ -85,10 +88,9 @@ section.about {
     @include scale-size("padding-left", 200, 30, 1600, 800);
     text-align: center;
 
-    // p {
-    //     margin: 30px 0;
-    //     text-align: left;
-    // }
+    @media (max-width: $mobile-breakpoint) {
+        padding-top: 30px;
+    }
 }
 
 section.articles {
@@ -96,57 +98,94 @@ section.articles {
     flex-wrap: wrap;
     background-color: $white;
 
-    & .article-image {
-        // width: 75%;
-        flex-basis: 45%;
-        // max-width: 800px;
-        min-width: 300px;
+    & > div {
+        position: relative;
+        flex: 1 0 40%;
+        // min-width: calc((#{$tablet-breakpoint} - 60px) * 45 / 100);
         margin-bottom: auto;
-    }
 
-    & .left-image {
-        position: relative;
-        top: -32px;
+        // &.left-container {
+        //     padding-right: 60px;
+        // }
 
-        &::after {
-            @include box-shadow(30, 30);
+        // &.right-container {
+        //     padding-left: 60px;
+        // }
+
+        &.left-image {
+            top: -28px;
+            margin-right: 60px;
+    
+            &::after {
+                @include box-shadow(30, 30);
+            }
+        }
+    
+        &.right-image {
+            @include scale-size("top", 32, 0, 1600, 1200);
+            margin-left: 60px;
+    
+            &::after {
+                @include box-shadow(-30, 30);
+            }
+    
+            // @media (max-width: $tablet-breakpoint) {
+            //     order: 3;
+            // }
+        }
+
+        img {
+            position: relative;
+            z-index: 1;
         }
     }
 
-    & .right-image {
-        position: relative;
-        // top: 32px;
-        @include scale-size("top", 32, 0, 1600, 1200);
-
-        &::after {
-            @include box-shadow(-30, 30);
-        }
-    }
-
-    & img {
-        position: relative;
-        z-index: 1;
-    }
-
-    & .article-text {
-        flex-basis: 55%;
-        // max-width: 800px;
-        min-width: 300px;
-        // padding: 80px 0 30px;
+    & article {
+        flex: 1 0 50%;
+        // min-width: calc((#{$tablet-breakpoint} - 60px) * 55 / 100);
         @include scale-size("padding-top", 80, 30, 1600, 1200);
         padding-bottom: 30px;
-        // @include scale-size("padding-bottom", 30, 10, 1600, 1200);
+
+        &.left-text {
+            @include scale-size("padding-right", 150, 30, 1600, 1200);
+            @include scale-size("padding-left", 150, 30, 1600, 1200);
+            text-align: right;
+        }
+    
+        &.right-text {
+            @include scale-size("padding-right", 150, 30, 1600, 1200);
+            @include scale-size("padding-left", 150, 30, 1600, 1200);
+        }
     }
 
-    & .left-text {
-        @include scale-size("padding-right", 150, 90, 1600, 1200);
-        @include scale-size("padding-left", 150, 30, 1600, 1200);
-        text-align: right;
-    }
+    @media (max-width: $tablet-breakpoint) {
+        flex-direction: column;
 
-    & .right-text {
-        @include scale-size("padding-right", 150, 30, 1600, 1200);
-        @include scale-size("padding-left", 150, 90, 1600, 1200);
+        div {
+            img {
+                max-width: calc(100vw - 60px);
+            }
+
+            &.left-image {
+                order: 1;
+                margin-right: auto;
+            }
+    
+            &.right-image {
+                order: 3;
+                margin-bottom: 30px;
+                margin-left: auto;
+            }
+        }
+
+        article.right-text {
+            order: 2;
+        }
+
+        article.left-text {
+            order: 4;
+            text-align: left;
+        }
     }
 }
 
@@ -154,13 +193,14 @@ section.resources {
     display: flex;
     flex-wrap: wrap;
     background-color: $off-white;
-    // padding: 150px 150px 100px;
     @include scale-size("padding", 150, 30, 1600, 1200);
     @include scale-size("padding-bottom", 70, 0, 1600, 1200);
 
     & > div {
-        flex-basis: 50%;
-        min-width: 400px;
+        // flex-basis: 50%;
+        // min-width: 400px;
+        flex: 1 0 50%;
+        // min-width: calc((#{$mobile-breakpoint} - 60px) / 2);
         position: relative;
         padding-top: 15px;
         padding-left: 80px;
@@ -199,6 +239,58 @@ section.resources {
             background-color: $decoration-color;
             border-radius: 50%;
         }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+
+        div {
+            // min-width: 0;
+        }
+    }
+}
+
+section.profile {
+    display: flex;
+    flex-wrap: wrap;
+    // position: relative;
+    @include scale-size("padding", 150, 30, 1600, 1200);
+    @include scale-size("padding-top", 120, 30, 1600, 1200);
+    padding-bottom: 60px;
+    background-color: $off-white;
+
+    & > div {
+        position: relative;
+        flex-basis: 25%;
+        margin-bottom: auto;
+
+        &::after {
+            @include box-shadow(30, 30);
+        }
+    }
+
+    & img {
+        position: relative;
+        z-index: 1;
+    }
+
+    article {
+        flex-basis: 75%;
+        @include scale-size("padding-left", 120, 60, 1600, 1200);
+    }
+}
+
+section.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    @include scale-size("padding", 100, 30, 1600, 1200);
+    @include scale-size("padding-right", 135, 15, 1600, 1200);
+    @include scale-size("padding-left", 135, 15, 1600, 1200);
+    background-color: $white;
+
+    & > div {
+        flex-basis: calc(100% / 3);
+        padding: 0 15px;
     }
 }
 
