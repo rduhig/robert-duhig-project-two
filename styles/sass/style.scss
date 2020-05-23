@@ -16,6 +16,15 @@ $heading-font: "Playfair Display", serif;
     margin: 0 auto;
 }
 
+img {
+    width: 100%;
+}
+
+p {
+    margin: 30px 0;
+    text-align: left;
+}
+
 button {
     background-color: $decoration-color;
     border: 2px solid transparent;
@@ -28,7 +37,7 @@ button {
 
 header {
     width: 100%;
-    @include scale-size("height", 755, 555, 1600, 800);
+    @include scale-size("height", 755, 405, 1600, 800);
     // height: 755px;
     background-image: url(../assets/header-image.jpg);
     background-size: cover;
@@ -51,7 +60,7 @@ header {
     & > span {
         display: block;
         position: relative;
-        @include scale-size("top", 600, 400, 1600, 800);
+        @include scale-size("top", 600, 320, 1600, 800);
         // top: 600px;
         margin: 0 auto;
         z-index: 1;
@@ -60,7 +69,8 @@ header {
     nav {
         position: absolute;
         top: 30px;
-        right: 120px;
+        // right: 120px;
+        @include scale-size("right", 120, 0, 1600, 1200);
 
         & > * {
             margin-right: 40px;
@@ -71,13 +81,124 @@ header {
 section.about {
     background-color: $off-white;
     padding: 200px 0 150px;
-    @include scale-size("padding-right", 200, 10, 1600, 800);
-    @include scale-size("padding-left", 200, 10, 1600, 800);
+    @include scale-size("padding-right", 200, 30, 1600, 800);
+    @include scale-size("padding-left", 200, 30, 1600, 800);
     text-align: center;
 
-    p {
-        margin: 30px 0;
-        text-align: left;
+    // p {
+    //     margin: 30px 0;
+    //     text-align: left;
+    // }
+}
+
+section.articles {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $white;
+
+    & .article-image {
+        // width: 75%;
+        flex-basis: 45%;
+        // max-width: 800px;
+        min-width: 300px;
+        margin-bottom: auto;
+    }
+
+    & .left-image {
+        position: relative;
+        top: -32px;
+
+        &::after {
+            @include box-shadow(30, 30);
+        }
+    }
+
+    & .right-image {
+        position: relative;
+        // top: 32px;
+        @include scale-size("top", 32, 0, 1600, 1200);
+
+        &::after {
+            @include box-shadow(-30, 30);
+        }
+    }
+
+    & img {
+        position: relative;
+        z-index: 1;
+    }
+
+    & .article-text {
+        flex-basis: 55%;
+        // max-width: 800px;
+        min-width: 300px;
+        // padding: 80px 0 30px;
+        @include scale-size("padding-top", 80, 30, 1600, 1200);
+        padding-bottom: 30px;
+        // @include scale-size("padding-bottom", 30, 10, 1600, 1200);
+    }
+
+    & .left-text {
+        @include scale-size("padding-right", 150, 90, 1600, 1200);
+        @include scale-size("padding-left", 150, 30, 1600, 1200);
+        text-align: right;
+    }
+
+    & .right-text {
+        @include scale-size("padding-right", 150, 30, 1600, 1200);
+        @include scale-size("padding-left", 150, 90, 1600, 1200);
+    }
+}
+
+section.resources {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $off-white;
+    // padding: 150px 150px 100px;
+    @include scale-size("padding", 150, 30, 1600, 1200);
+    @include scale-size("padding-bottom", 70, 0, 1600, 1200);
+
+    & > div {
+        flex-basis: 50%;
+        min-width: 400px;
+        position: relative;
+        padding-top: 15px;
+        padding-left: 80px;
+
+        & i {
+            position: absolute;
+        }
+
+        &.picks i {
+            top: 12px;
+            left: 12px;
+        }
+
+        &.community i {
+            top: 12px;
+            left: 8px;
+        }
+
+        &.blog i {
+            top: 13px;
+            left: 18px;
+        }
+
+        &.contact i {
+            top: 13px;
+            left: 12px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background-color: $decoration-color;
+            border-radius: 50%;
+        }
     }
 }
 
