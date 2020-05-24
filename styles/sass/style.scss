@@ -5,8 +5,8 @@ $white: #FAFAFA;
 $off-white: #EFFDF3;
 $main-font: "Roboto", sans-serif;
 $heading-font: "Playfair Display", serif;
-$tablet-breakpoint: 980px;
-$mobile-breakpoint: 840px;
+$tablet-breakpoint: 850px;
+$mobile-breakpoint: 450px;
 
 @import "mixins";
 @import "setup";
@@ -39,8 +39,8 @@ button {
 
 header {
     width: 100%;
-    @include scale-size("height", 755, 405, 1600, 800);
-    background-image: url(../assets/header-image.jpg);
+    @include scale-size("height", 755, 305, 1600, 800);
+    background: url(../assets/header-image.jpg) 35% bottom;
     background-size: cover;
     position: relative;
     text-align: center;
@@ -50,7 +50,7 @@ header {
         background-color: $shadow-color;
         padding: 50px 0 50px 50px;
         position: absolute;
-        top: 150px;
+        @include scale-size("top", 150, 90, 1600, 800);
         right: 0;
 
         img {
@@ -65,25 +65,66 @@ header {
     & > span {
         display: block;
         position: relative;
-        @include scale-size("top", 600, 320, 1600, 800);
+        @include scale-size("top", 600, 220, 1600, 800);
         margin: 0 auto;
         z-index: 1;
     }
 
-    nav {
+    nav.menu-bar {
         position: absolute;
         top: 30px;
         @include scale-size("right", 120, 0, 1600, 1200);
 
-        & > * {
-            margin-right: 40px;
+        li {
+            display: inline-block;
+            @include scale-size("margin-right", 40, 5, 1600, 450)
+        }
+    }
+
+    nav.drop-down-menu {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        input[type=checkbox] {
+            display: none;
+
+            &:checked ~ label {
+                color: $decoration-color;
+            }
+
+            &:checked ~ ul.links {
+                width: 100px;
+            }
+        }
+
+        ul.links {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            text-align: right;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.25s ease;
+        }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        nav.menu-bar {
+            display: none;
+        }
+
+        nav.drop-down-menu {
+            display: block;
         }
     }
 }
 
 section.about {
     background-color: $off-white;
-    padding: 200px 0 150px;
+    @include scale-size("padding-top", 200, 140, 1600, 800);
+    @include scale-size("padding-bottom", 150, 60, 1600, 800);
     @include scale-size("padding-right", 200, 30, 1600, 800);
     @include scale-size("padding-left", 200, 30, 1600, 800);
     text-align: center;
@@ -101,20 +142,11 @@ section.articles {
     & > div {
         position: relative;
         flex: 1 0 40%;
-        // min-width: calc((#{$tablet-breakpoint} - 60px) * 45 / 100);
         margin-bottom: auto;
-
-        // &.left-container {
-        //     padding-right: 60px;
-        // }
-
-        // &.right-container {
-        //     padding-left: 60px;
-        // }
 
         &.left-image {
             top: -28px;
-            margin-right: 60px;
+            margin-right: auto;
     
             &::after {
                 @include box-shadow(30, 30);
@@ -123,15 +155,11 @@ section.articles {
     
         &.right-image {
             @include scale-size("top", 32, 0, 1600, 1200);
-            margin-left: 60px;
+            margin-left: auto;
     
             &::after {
                 @include box-shadow(-30, 30);
             }
-    
-            // @media (max-width: $tablet-breakpoint) {
-            //     order: 3;
-            // }
         }
 
         img {
@@ -142,19 +170,18 @@ section.articles {
 
     & article {
         flex: 1 0 50%;
-        // min-width: calc((#{$tablet-breakpoint} - 60px) * 55 / 100);
         @include scale-size("padding-top", 80, 30, 1600, 1200);
         padding-bottom: 30px;
 
         &.left-text {
-            @include scale-size("padding-right", 150, 30, 1600, 1200);
+            @include scale-size("padding-right", 150, 60, 1600, 1200);
             @include scale-size("padding-left", 150, 30, 1600, 1200);
             text-align: right;
         }
     
         &.right-text {
             @include scale-size("padding-right", 150, 30, 1600, 1200);
-            @include scale-size("padding-left", 150, 30, 1600, 1200);
+            @include scale-size("padding-left", 150, 60, 1600, 1200);
         }
     }
 
@@ -180,11 +207,14 @@ section.articles {
 
         article.right-text {
             order: 2;
+            padding-left: 30px;
+            text-align: center;
         }
 
         article.left-text {
             order: 4;
-            text-align: left;
+            padding-right: 30px;
+            text-align: center;;
         }
     }
 }
@@ -197,15 +227,12 @@ section.resources {
     @include scale-size("padding-bottom", 70, 0, 1600, 1200);
 
     & > div {
-        // flex-basis: 50%;
-        // min-width: 400px;
         flex: 1 0 50%;
-        // min-width: calc((#{$mobile-breakpoint} - 60px) / 2);
         position: relative;
         padding-top: 15px;
         padding-left: 80px;
 
-        & i {
+        i {
             position: absolute;
         }
 
@@ -243,54 +270,67 @@ section.resources {
 
     @media (max-width: $mobile-breakpoint) {
         flex-direction: column;
-
-        div {
-            // min-width: 0;
-        }
     }
 }
 
 section.profile {
     display: flex;
-    flex-wrap: wrap;
-    // position: relative;
     @include scale-size("padding", 150, 30, 1600, 1200);
     @include scale-size("padding-top", 120, 30, 1600, 1200);
-    padding-bottom: 60px;
+    @include scale-size("padding-bottom", 60, 30, 1600, 1200);
     background-color: $off-white;
 
     & > div {
         position: relative;
-        flex-basis: 25%;
+        flex: 1 0 25%;
         margin-bottom: auto;
+        margin-right: auto;
 
         &::after {
             @include box-shadow(30, 30);
         }
     }
 
-    & img {
+    img {
         position: relative;
         z-index: 1;
     }
 
     article {
-        flex-basis: 75%;
+        flex: 1 0 75%;
         @include scale-size("padding-left", 120, 60, 1600, 1200);
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+
+        img {
+            max-width: calc(100vw - 90px);
+        }
+
+        article {
+            padding-top: 60px;
+            padding-left: 0;
+            text-align: center;
+        }
     }
 }
 
 section.gallery {
     display: flex;
     flex-wrap: wrap;
-    @include scale-size("padding", 100, 30, 1600, 1200);
+    @include scale-size("padding", 100, 15, 1600, 1200);
     @include scale-size("padding-right", 135, 15, 1600, 1200);
     @include scale-size("padding-left", 135, 15, 1600, 1200);
     background-color: $white;
 
     & > div {
-        flex-basis: calc(100% / 3);
-        padding: 0 15px;
+        flex: 1 0 calc(100% / 3);
+        padding: 15px;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
     }
 }
 

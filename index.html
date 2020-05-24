@@ -15,11 +15,25 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ -->
 
         <header>
-            <nav>
-                <span class="current-page">HOME</span>
-                <a href="#about">ABOUT</a>
-                <a href="./blog.html">BLOG</a>
-                <a href="./contact.html">CONTACT</a>
+            <nav class="drop-down-menu">
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="links">
+                    <li><span class="current-page">HOME</span></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <nav class="menu-bar">
+                <ul>
+                    <li><span class="current-page">HOME</span></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+                </ul>
             </nav>
             <span><h1>CAPTURED</h1></span>
             <div><img src="./assets/header-box-image.jpg" alt="The telescoping lens of a DSLR camera."></div>
@@ -36,11 +50,9 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~ ARTICLES ~~~~~~~~~~~~~~~~~~~~ -->
 
         <section class="articles">
-            <!-- <div class="left-container"> -->
             <div class="left-image">
                 <img src="assets/left-image.jpg" alt="A DSLR camera pointed at the sky on a bright day.">
             </div>
-            <!-- </div> -->
             <article class="right-text">
                 <h4>UNLOCK YOUR SKILLS</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci itaque voluptate quam numquam corporis dolor quasi soluta eos similique est accusantium dignissimos quia enim, ducimus obcaecati ut consequatur laboriosam dolorum esse eum quibusdam voluptatem. Modi!</p>
@@ -51,11 +63,9 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci itaque voluptate quam numquam corporis dolor quasi soluta eos similique est accusantium dignissimos quia enim, ducimus obcaecati ut consequatur laboriosam dolorum esse eum quibusdam voluptatem. Modi!</p>
                 <button>READ MORE</button>
             </article>
-            <!-- <div class="right-container"> -->
             <div class="right-image">
                 <img src="assets/right-image.jpg" alt="A person is looking at the LCD screen of a DSLR camera.">
             </div>
-            <!-- </div> -->
         </section>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~ RESOURCES ~~~~~~~~~~~~~~~~~~~~ -->

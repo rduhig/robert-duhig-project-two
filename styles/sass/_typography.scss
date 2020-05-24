@@ -12,7 +12,7 @@ h1, h2, h3, h4, a, button, .current-page, .email {
 }
 
 h1 {
-    @include scale-size("font-size", 120, 60, 1600, 800);
+    @include scale-size("font-size", 120, 54, 1600, 800);
 }
 
 h2 {
