@@ -12,11 +12,7 @@ $mobile-breakpoint: 450px;
 @import "setup";
 @import "typography";
 
-.wrapper {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-}
+/* ~~~~~~~~~~~~~~~~~~~~ SHARED STYLES ~~~~~~~~~~~~~~~~~~~~ */
 
 img {
     width: 100%;
@@ -37,300 +33,59 @@ button {
     }
 }
 
-header {
+.wrapper {
     width: 100%;
-    @include scale-size("height", 755, 305, 1600, 800);
-    background: url(../assets/header-image.jpg) 35% bottom;
-    background-size: cover;
-    position: relative;
-    text-align: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
 
-    div {
-        height: 100%;
-        background-color: $shadow-color;
-        padding: 50px 0 50px 50px;
+nav.menu-bar {
+    position: absolute;
+    top: 30px;
+    @include scale-size("right", 120, 0, 1600, 1200);
+
+    li {
+        display: inline-block;
+        @include scale-size("margin-right", 40, 5, 1600, 450)
+    }
+}
+
+nav.drop-down-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    input[type=checkbox] {
+        display: none;
+
+        &:checked ~ label {
+            color: $decoration-color;
+        }
+
+        &:checked ~ ul.drop-down-links {
+            width: 100px;
+        }
+    }
+
+    ul.drop-down-links {
         position: absolute;
-        @include scale-size("top", 150, 90, 1600, 800);
+        top: 35px;
         right: 0;
-
-        img {
-            height: 100%;
-        }
-
-        @media (max-width: $mobile-breakpoint) {
-            display: none;
-        }
+        text-align: right;
+        width: 0;
+        overflow: hidden;
+        transition: width 0.25s ease;
     }
+}
 
-    & > span {
-        display: block;
-        position: relative;
-        @include scale-size("top", 600, 220, 1600, 800);
-        margin: 0 auto;
-        z-index: 1;
-    }
-
+@media (max-width: $mobile-breakpoint) {
     nav.menu-bar {
-        position: absolute;
-        top: 30px;
-        @include scale-size("right", 120, 0, 1600, 1200);
-
-        li {
-            display: inline-block;
-            @include scale-size("margin-right", 40, 5, 1600, 450)
-        }
+        display: none;
     }
 
     nav.drop-down-menu {
-        display: none;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-
-        input[type=checkbox] {
-            display: none;
-
-            &:checked ~ label {
-                color: $decoration-color;
-            }
-
-            &:checked ~ ul.links {
-                width: 100px;
-            }
-        }
-
-        ul.links {
-            position: absolute;
-            top: 35px;
-            right: 0;
-            text-align: right;
-            width: 0;
-            overflow: hidden;
-            transition: width 0.25s ease;
-        }
-    }
-
-    @media (max-width: $mobile-breakpoint) {
-        nav.menu-bar {
-            display: none;
-        }
-
-        nav.drop-down-menu {
-            display: block;
-        }
-    }
-}
-
-section.about {
-    background-color: $off-white;
-    @include scale-size("padding-top", 200, 140, 1600, 800);
-    @include scale-size("padding-bottom", 150, 60, 1600, 800);
-    @include scale-size("padding-right", 200, 30, 1600, 800);
-    @include scale-size("padding-left", 200, 30, 1600, 800);
-    text-align: center;
-
-    @media (max-width: $mobile-breakpoint) {
-        padding-top: 30px;
-    }
-}
-
-section.articles {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: $white;
-
-    & > div {
-        position: relative;
-        flex: 1 0 40%;
-        margin-bottom: auto;
-
-        &.left-image {
-            top: -28px;
-            margin-right: auto;
-    
-            &::after {
-                @include box-shadow(30, 30);
-            }
-        }
-    
-        &.right-image {
-            @include scale-size("top", 32, 0, 1600, 1200);
-            margin-left: auto;
-    
-            &::after {
-                @include box-shadow(-30, 30);
-            }
-        }
-
-        img {
-            position: relative;
-            z-index: 1;
-        }
-    }
-
-    & article {
-        flex: 1 0 50%;
-        @include scale-size("padding-top", 80, 30, 1600, 1200);
-        padding-bottom: 30px;
-
-        &.left-text {
-            @include scale-size("padding-right", 150, 60, 1600, 1200);
-            @include scale-size("padding-left", 150, 30, 1600, 1200);
-            text-align: right;
-        }
-    
-        &.right-text {
-            @include scale-size("padding-right", 150, 30, 1600, 1200);
-            @include scale-size("padding-left", 150, 60, 1600, 1200);
-        }
-    }
-
-    @media (max-width: $tablet-breakpoint) {
-        flex-direction: column;
-
-        div {
-            img {
-                max-width: calc(100vw - 60px);
-            }
-
-            &.left-image {
-                order: 1;
-                margin-right: auto;
-            }
-    
-            &.right-image {
-                order: 3;
-                margin-bottom: 30px;
-                margin-left: auto;
-            }
-        }
-
-        article.right-text {
-            order: 2;
-            padding-left: 30px;
-            text-align: center;
-        }
-
-        article.left-text {
-            order: 4;
-            padding-right: 30px;
-            text-align: center;;
-        }
-    }
-}
-
-section.resources {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: $off-white;
-    @include scale-size("padding", 150, 30, 1600, 1200);
-    @include scale-size("padding-bottom", 70, 0, 1600, 1200);
-
-    & > div {
-        flex: 1 0 50%;
-        position: relative;
-        padding-top: 15px;
-        padding-left: 80px;
-
-        i {
-            position: absolute;
-        }
-
-        &.picks i {
-            top: 12px;
-            left: 12px;
-        }
-
-        &.community i {
-            top: 12px;
-            left: 8px;
-        }
-
-        &.blog i {
-            top: 13px;
-            left: 18px;
-        }
-
-        &.contact i {
-            top: 13px;
-            left: 12px;
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 60px;
-            height: 60px;
-            background-color: $decoration-color;
-            border-radius: 50%;
-        }
-    }
-
-    @media (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-    }
-}
-
-section.profile {
-    display: flex;
-    @include scale-size("padding", 150, 30, 1600, 1200);
-    @include scale-size("padding-top", 120, 30, 1600, 1200);
-    @include scale-size("padding-bottom", 60, 30, 1600, 1200);
-    background-color: $off-white;
-
-    & > div {
-        position: relative;
-        flex: 1 0 25%;
-        margin-bottom: auto;
-        margin-right: auto;
-
-        &::after {
-            @include box-shadow(30, 30);
-        }
-    }
-
-    img {
-        position: relative;
-        z-index: 1;
-    }
-
-    article {
-        flex: 1 0 75%;
-        @include scale-size("padding-left", 120, 60, 1600, 1200);
-    }
-
-    @media (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-
-        img {
-            max-width: calc(100vw - 90px);
-        }
-
-        article {
-            padding-top: 60px;
-            padding-left: 0;
-            text-align: center;
-        }
-    }
-}
-
-section.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    @include scale-size("padding", 100, 15, 1600, 1200);
-    @include scale-size("padding-right", 135, 15, 1600, 1200);
-    @include scale-size("padding-left", 135, 15, 1600, 1200);
-    background-color: $white;
-
-    & > div {
-        flex: 1 0 calc(100% / 3);
-        padding: 15px;
-    }
-
-    @media (max-width: $mobile-breakpoint) {
-        flex-direction: column;
+        display: block;
     }
 }
 
@@ -339,4 +94,387 @@ footer {
     color: $white;
     padding: 5px;
     text-align: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ HOMEPAGE ~~~~~~~~~~~~~~~~~~~~ */
+
+body.homepage {
+    header {
+        width: 100%;
+        @include scale-size("height", 755, 305, 1600, 800);
+        background: url(../assets/header-image.jpg) 35% bottom;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+    
+        div {
+            height: 100%;
+            background-color: $shadow-color;
+            padding: 50px 0 50px 50px;
+            position: absolute;
+            @include scale-size("top", 150, 90, 1600, 800);
+            right: 0;
+    
+            img {
+                height: 100%;
+            }
+    
+            @media (max-width: $mobile-breakpoint) {
+                display: none;
+            }
+        }
+    
+        & > span {
+            display: block;
+            position: relative;
+            @include scale-size("top", 600, 220, 1600, 800);
+            margin: 0 auto;
+            z-index: 1;
+        }
+    }
+    
+    section.about {
+        background-color: $off-white;
+        @include scale-size("padding-top", 200, 140, 1600, 800);
+        @include scale-size("padding-bottom", 150, 60, 1600, 800);
+        @include scale-size("padding-right", 200, 30, 1600, 800);
+        @include scale-size("padding-left", 200, 30, 1600, 800);
+        text-align: center;
+    
+        @media (max-width: $mobile-breakpoint) {
+            padding-top: 30px;
+        }
+    }
+    
+    section.articles {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: $white;
+    
+        & > div {
+            position: relative;
+            flex: 1 0 40%;
+            margin-bottom: auto;
+    
+            &.left-image {
+                top: -28px;
+                margin-right: auto;
+        
+                &::after {
+                    @include box-shadow(30, 30);
+                }
+            }
+        
+            &.right-image {
+                @include scale-size("top", 32, 0, 1600, 1200);
+                margin-left: auto;
+        
+                &::after {
+                    @include box-shadow(-30, 30);
+                }
+            }
+    
+            img {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    
+        article {
+            flex: 1 0 50%;
+            @include scale-size("padding-top", 80, 30, 1600, 1200);
+            padding-bottom: 30px;
+    
+            &.left-text {
+                @include scale-size("padding-right", 150, 60, 1600, 1200);
+                @include scale-size("padding-left", 150, 30, 1600, 1200);
+                text-align: right;
+            }
+        
+            &.right-text {
+                @include scale-size("padding-right", 150, 30, 1600, 1200);
+                @include scale-size("padding-left", 150, 60, 1600, 1200);
+            }
+        }
+    
+        @media (max-width: $tablet-breakpoint) {
+            flex-direction: column;
+    
+            div {
+                img {
+                    max-width: calc(100vw - 60px);
+                }
+    
+                &.left-image {
+                    order: 1;
+                    margin-right: auto;
+                }
+        
+                &.right-image {
+                    order: 3;
+                    margin-bottom: 30px;
+                    margin-left: auto;
+                }
+            }
+    
+            article.right-text {
+                order: 2;
+                padding-left: 30px;
+                text-align: center;
+            }
+    
+            article.left-text {
+                order: 4;
+                padding-right: 30px;
+                text-align: center;;
+            }
+        }
+    }
+    
+    section.resources {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: $off-white;
+        @include scale-size("padding", 150, 30, 1600, 1200);
+        @include scale-size("padding-bottom", 70, 0, 1600, 1200);
+    
+        & > div {
+            flex: 1 0 50%;
+            position: relative;
+            padding-top: 15px;
+            padding-left: 80px;
+    
+            i {
+                position: absolute;
+            }
+    
+            &.picks i {
+                top: 12px;
+                left: 12px;
+            }
+    
+            &.community i {
+                top: 12px;
+                left: 8px;
+            }
+    
+            &.blog i {
+                top: 13px;
+                left: 18px;
+            }
+    
+            &.contact i {
+                top: 13px;
+                left: 12px;
+            }
+    
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 60px;
+                height: 60px;
+                background-color: $decoration-color;
+                border-radius: 50%;
+            }
+        }
+    
+        @media (max-width: $mobile-breakpoint) {
+            flex-direction: column;
+        }
+    }
+    
+    section.profile {
+        display: flex;
+        @include scale-size("padding", 150, 30, 1600, 1200);
+        @include scale-size("padding-top", 120, 30, 1600, 1200);
+        @include scale-size("padding-bottom", 60, 30, 1600, 1200);
+        background-color: $off-white;
+    
+        & > div {
+            position: relative;
+            flex: 1 0 25%;
+            margin-bottom: auto;
+            margin-right: auto;
+    
+            &::after {
+                @include box-shadow(30, 30);
+            }
+        }
+    
+        img {
+            position: relative;
+            z-index: 1;
+        }
+    
+        article {
+            flex: 1 0 75%;
+            @include scale-size("padding-left", 120, 60, 1600, 1200);
+        }
+    
+        @media (max-width: $mobile-breakpoint) {
+            flex-direction: column;
+    
+            img {
+                max-width: calc(100vw - 90px);
+            }
+    
+            article {
+                padding-top: 60px;
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+    
+    section.gallery {
+        display: flex;
+        @include scale-size("padding", 100, 15, 1600, 1200);
+        @include scale-size("padding-right", 135, 15, 1600, 1200);
+        @include scale-size("padding-left", 135, 15, 1600, 1200);
+        background-color: $white;
+    
+        & > div {
+            flex: 1 0 calc(100% / 3);
+            padding: 15px;
+        }
+    
+        @media (max-width: $mobile-breakpoint) {
+            flex-direction: column;
+        }
+    }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ CONTACT PAGE ~~~~~~~~~~~~~~~~~~~~ */
+
+body.contact-page {
+    header {
+        width: 100%;
+        @include scale-size("height", 576, 305, 1600, 850);
+        background: url(../assets/contact-header.jpg) 35% bottom;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+
+    
+        & > span {
+            display: block;
+            position: relative;
+            @include scale-size("top", 200, 100, 1600, 850);
+            @include scale-size("padding-left", 100, 50, 1600, 450);
+            margin: 0 auto;
+            z-index: 1;
+
+            @media (max-width: $mobile-breakpoint) {
+                top: 175px;
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        align-items: end;
+        background-color: $off-white;
+        @include scale-size("padding-bottom", 200, 30, 1600, 850);
+        @include scale-size("padding-left", 150, 30, 1600, 850);
+        @include scale-size("padding-right", 60, 30, 1600, 850);
+        @include scale-size("margin-top", -50, -200, 850, 1600);
+
+        address {
+            flex: 1 0 15%;
+            min-width: 260px;
+            position: relative;
+            padding-right: 30px;
+
+            i:not(:last-of-type) {
+                margin-right: 20px;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+        div.contact-form {
+            flex: 1 0 60%;
+            min-width: 500px;
+            background-color: $white;
+            padding: 40px;
+            margin-bottom: 30px;
+            margin-left: 30px;
+            box-shadow: -30px 30px $shadow-color;
+            z-index: 1;
+
+            label {
+                height: 0;
+                overflow: hidden;
+            }
+
+            input, textarea {
+                background-color: $white;
+                padding: 10px;
+                border: 2px solid $decoration-color;
+                margin: 20px 10px;
+            }
+
+            input {
+                display: inline-block;
+                width: calc(50% - 23px);
+                border-top: 0;
+                border-right: 0;
+                border-left: 0;
+            }
+
+            textarea, button {
+                width: calc(100% - 20px);
+            }
+
+            textarea {
+                height: 250px;
+                resize: none;
+            }
+
+            button {
+                margin: 20px 10px 10px;
+            }
+        }
+
+        @media (max-width: $tablet-breakpoint) {
+            flex-direction: column-reverse;
+
+            address {
+                width: 100%;
+                padding-left: 30px;
+                margin-top: 30px;
+                text-align: center;
+
+                span:not(.email) {
+                    display: inline-block;
+                }
+            }
+
+            div.contact-form {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            padding-right: 0;
+            padding-left: 0;
+            margin-top: 0;
+
+            div.contact-form {
+                padding: 30px;
+                margin-bottom: 0;
+                margin-left: 0;
+                box-shadow: none;
+
+                input, textarea, button {
+                    width: 100%;
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
 }

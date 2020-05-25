@@ -56,4 +56,5 @@ i {
 .email {
     @include scale-size("font-size", 26, 20, 1600, 800);
     letter-spacing: 1.1px;
+    margin: 20px 0;
 }

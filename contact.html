@@ -9,7 +9,68 @@
     <title>Captured - Contact</title>
     <script src="https://kit.fontawesome.com/7b918aa7b2.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
+<body class="contact-page">
+    <div class="wrapper">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <header>
+            <nav class="drop-down-menu">
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="drop-down-links">
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./index.html#about">ABOUT</a></li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><span class="current-page">CONTACT</span></li>
+                </ul>
+            </nav>
+            <nav class="menu-bar">
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./index.html#about">ABOUT</a></li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><span class="current-page">CONTACT</span></li>
+                </ul>
+            </nav>
+            <span><h2>GET IN TOUCH</h2></span>
+        </header>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <main>
+            <address>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-whatsapp"></i>
+                <span class="email">INFO@EMAIL.COM</span>
+                <div class="address">
+                    <span>123 - 456 - 7890</span>
+                    <span>123 Queen Street West, Unit 10</span>
+                    <span>Toronto, Ontario</span>
+                    <span>M5V 2D5</span>
+                </div>
+            </address>
+            <div class="contact-form">
+                <form>
+                    <input type="text" id="name" placeholder="Name">
+                    <label for="name" class="sr-only">Name</label>
+                    <input type="email" id="email" placeholder="Email address">
+                    <label for="email" class="sr-only">Email address</label>
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <footer>
+            <span>Copyright &copy; 2018 HackerYou</span>
+        </footer>
+    </div>
 </body>
 </html>

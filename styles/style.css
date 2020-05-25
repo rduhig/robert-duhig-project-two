@@ -294,14 +294,10 @@ i {
 .email {
   font-size: clamp(20px, calc(20 * 1px + (26 - 20) * ((100vw - 800 * 1px) / (1600 - 800))), 26px);
   letter-spacing: 1.1px;
+  margin: 20px 0;
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
+/* ~~~~~~~~~~~~~~~~~~~~ SHARED STYLES ~~~~~~~~~~~~~~~~~~~~ */
 img {
   width: 100%;
 }
@@ -321,73 +317,43 @@ button:hover, button:focus {
   border-color: #2C2C2C;
 }
 
-header {
+.wrapper {
   width: 100%;
-  height: clamp(305px, calc(305 * 1px + (755 - 305) * ((100vw - 800 * 1px) / (1600 - 800))), 755px);
-  background: url(../assets/header-image.jpg) 35% bottom;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-}
-
-header div {
-  height: 100%;
-  background-color: #FDFA69;
-  padding: 50px 0 50px 50px;
-  position: absolute;
-  top: clamp(90px, calc(90 * 1px + (150 - 90) * ((100vw - 800 * 1px) / (1600 - 800))), 150px);
-  right: 0;
-}
-
-header div img {
-  height: 100%;
-}
-
-@media (max-width: 450px) {
-  header div {
-    display: none;
-  }
-}
-
-header > span {
-  display: block;
-  position: relative;
-  top: clamp(220px, calc(220 * 1px + (600 - 220) * ((100vw - 800 * 1px) / (1600 - 800))), 600px);
+  max-width: 1600px;
   margin: 0 auto;
-  z-index: 1;
 }
 
-header nav.menu-bar {
+nav.menu-bar {
   position: absolute;
   top: 30px;
   right: clamp(0px, calc(0 * 1px + (120 - 0) * ((100vw - 1200 * 1px) / (1600 - 1200))), 120px);
 }
 
-header nav.menu-bar li {
+nav.menu-bar li {
   display: inline-block;
   margin-right: clamp(5px, calc(5 * 1px + (40 - 5) * ((100vw - 450 * 1px) / (1600 - 450))), 40px);
 }
 
-header nav.drop-down-menu {
+nav.drop-down-menu {
   display: none;
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
-header nav.drop-down-menu input[type=checkbox] {
+nav.drop-down-menu input[type=checkbox] {
   display: none;
 }
 
-header nav.drop-down-menu input[type=checkbox]:checked ~ label {
+nav.drop-down-menu input[type=checkbox]:checked ~ label {
   color: #4CEEA7;
 }
 
-header nav.drop-down-menu input[type=checkbox]:checked ~ ul.links {
+nav.drop-down-menu input[type=checkbox]:checked ~ ul.drop-down-links {
   width: 100px;
 }
 
-header nav.drop-down-menu ul.links {
+nav.drop-down-menu ul.drop-down-links {
   position: absolute;
   top: 35px;
   right: 0;
@@ -399,15 +365,59 @@ header nav.drop-down-menu ul.links {
 }
 
 @media (max-width: 450px) {
-  header nav.menu-bar {
+  nav.menu-bar {
     display: none;
   }
-  header nav.drop-down-menu {
+  nav.drop-down-menu {
     display: block;
   }
 }
 
-section.about {
+footer {
+  background-color: #2C2C2C;
+  color: #FAFAFA;
+  padding: 5px;
+  text-align: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ HOMEPAGE ~~~~~~~~~~~~~~~~~~~~ */
+body.homepage header {
+  width: 100%;
+  height: clamp(305px, calc(305 * 1px + (755 - 305) * ((100vw - 800 * 1px) / (1600 - 800))), 755px);
+  background: url(../assets/header-image.jpg) 35% bottom;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+
+body.homepage header div {
+  height: 100%;
+  background-color: #FDFA69;
+  padding: 50px 0 50px 50px;
+  position: absolute;
+  top: clamp(90px, calc(90 * 1px + (150 - 90) * ((100vw - 800 * 1px) / (1600 - 800))), 150px);
+  right: 0;
+}
+
+body.homepage header div img {
+  height: 100%;
+}
+
+@media (max-width: 450px) {
+  body.homepage header div {
+    display: none;
+  }
+}
+
+body.homepage header > span {
+  display: block;
+  position: relative;
+  top: clamp(220px, calc(220 * 1px + (600 - 220) * ((100vw - 800 * 1px) / (1600 - 800))), 600px);
+  margin: 0 auto;
+  z-index: 1;
+}
+
+body.homepage section.about {
   background-color: #EFFDF3;
   padding-top: clamp(140px, calc(140 * 1px + (200 - 140) * ((100vw - 800 * 1px) / (1600 - 800))), 200px);
   padding-bottom: clamp(60px, calc(60 * 1px + (150 - 60) * ((100vw - 800 * 1px) / (1600 - 800))), 150px);
@@ -417,12 +427,12 @@ section.about {
 }
 
 @media (max-width: 450px) {
-  section.about {
+  body.homepage section.about {
     padding-top: 30px;
   }
 }
 
-section.articles {
+body.homepage section.articles {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -431,7 +441,7 @@ section.articles {
   background-color: #FAFAFA;
 }
 
-section.articles > div {
+body.homepage section.articles > div {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 40%;
@@ -439,12 +449,12 @@ section.articles > div {
   margin-bottom: auto;
 }
 
-section.articles > div.left-image {
+body.homepage section.articles > div.left-image {
   top: -28px;
   margin-right: auto;
 }
 
-section.articles > div.left-image::after {
+body.homepage section.articles > div.left-image::after {
   content: '';
   background-color: #FDFA69;
   position: absolute;
@@ -456,12 +466,12 @@ section.articles > div.left-image::after {
           transform: translate(30px, 30px);
 }
 
-section.articles > div.right-image {
+body.homepage section.articles > div.right-image {
   top: clamp(0px, calc(0 * 1px + (32 - 0) * ((100vw - 1200 * 1px) / (1600 - 1200))), 32px);
   margin-left: auto;
 }
 
-section.articles > div.right-image::after {
+body.homepage section.articles > div.right-image::after {
   content: '';
   background-color: #FDFA69;
   position: absolute;
@@ -473,12 +483,12 @@ section.articles > div.right-image::after {
           transform: translate(-30px, 30px);
 }
 
-section.articles > div img {
+body.homepage section.articles > div img {
   position: relative;
   z-index: 1;
 }
 
-section.articles article {
+body.homepage section.articles article {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
@@ -486,48 +496,48 @@ section.articles article {
   padding-bottom: 30px;
 }
 
-section.articles article.left-text {
+body.homepage section.articles article.left-text {
   padding-right: clamp(60px, calc(60 * 1px + (150 - 60) * ((100vw - 1200 * 1px) / (1600 - 1200))), 150px);
   padding-left: clamp(30px, calc(30 * 1px + (150 - 30) * ((100vw - 1200 * 1px) / (1600 - 1200))), 150px);
   text-align: right;
 }
 
-section.articles article.right-text {
+body.homepage section.articles article.right-text {
   padding-right: clamp(30px, calc(30 * 1px + (150 - 30) * ((100vw - 1200 * 1px) / (1600 - 1200))), 150px);
   padding-left: clamp(60px, calc(60 * 1px + (150 - 60) * ((100vw - 1200 * 1px) / (1600 - 1200))), 150px);
 }
 
 @media (max-width: 850px) {
-  section.articles {
+  body.homepage section.articles {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  section.articles div img {
+  body.homepage section.articles div img {
     max-width: calc(100vw - 60px);
   }
-  section.articles div.left-image {
+  body.homepage section.articles div.left-image {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     margin-right: auto;
   }
-  section.articles div.right-image {
+  body.homepage section.articles div.right-image {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
     margin-bottom: 30px;
     margin-left: auto;
   }
-  section.articles article.right-text {
+  body.homepage section.articles article.right-text {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     padding-left: 30px;
     text-align: center;
   }
-  section.articles article.left-text {
+  body.homepage section.articles article.left-text {
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
@@ -536,7 +546,7 @@ section.articles article.right-text {
   }
 }
 
-section.resources {
+body.homepage section.resources {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -547,7 +557,7 @@ section.resources {
   padding-bottom: clamp(0px, calc(0 * 1px + (70 - 0) * ((100vw - 1200 * 1px) / (1600 - 1200))), 70px);
 }
 
-section.resources > div {
+body.homepage section.resources > div {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
@@ -556,31 +566,31 @@ section.resources > div {
   padding-left: 80px;
 }
 
-section.resources > div i {
+body.homepage section.resources > div i {
   position: absolute;
 }
 
-section.resources > div.picks i {
+body.homepage section.resources > div.picks i {
   top: 12px;
   left: 12px;
 }
 
-section.resources > div.community i {
+body.homepage section.resources > div.community i {
   top: 12px;
   left: 8px;
 }
 
-section.resources > div.blog i {
+body.homepage section.resources > div.blog i {
   top: 13px;
   left: 18px;
 }
 
-section.resources > div.contact i {
+body.homepage section.resources > div.contact i {
   top: 13px;
   left: 12px;
 }
 
-section.resources > div::before {
+body.homepage section.resources > div::before {
   content: "";
   position: absolute;
   top: 0;
@@ -592,7 +602,7 @@ section.resources > div::before {
 }
 
 @media (max-width: 450px) {
-  section.resources {
+  body.homepage section.resources {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -600,7 +610,7 @@ section.resources > div::before {
   }
 }
 
-section.profile {
+body.homepage section.profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -610,7 +620,7 @@ section.profile {
   background-color: #EFFDF3;
 }
 
-section.profile > div {
+body.homepage section.profile > div {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 25%;
@@ -619,7 +629,7 @@ section.profile > div {
   margin-right: auto;
 }
 
-section.profile > div::after {
+body.homepage section.profile > div::after {
   content: '';
   background-color: #FDFA69;
   position: absolute;
@@ -631,12 +641,12 @@ section.profile > div::after {
           transform: translate(30px, 30px);
 }
 
-section.profile img {
+body.homepage section.profile img {
   position: relative;
   z-index: 1;
 }
 
-section.profile article {
+body.homepage section.profile article {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 75%;
           flex: 1 0 75%;
@@ -644,35 +654,33 @@ section.profile article {
 }
 
 @media (max-width: 450px) {
-  section.profile {
+  body.homepage section.profile {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  section.profile img {
+  body.homepage section.profile img {
     max-width: calc(100vw - 90px);
   }
-  section.profile article {
+  body.homepage section.profile article {
     padding-top: 60px;
     padding-left: 0;
     text-align: center;
   }
 }
 
-section.gallery {
+body.homepage section.gallery {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   padding: clamp(15px, calc(15 * 1px + (100 - 15) * ((100vw - 1200 * 1px) / (1600 - 1200))), 100px);
   padding-right: clamp(15px, calc(15 * 1px + (135 - 15) * ((100vw - 1200 * 1px) / (1600 - 1200))), 135px);
   padding-left: clamp(15px, calc(15 * 1px + (135 - 15) * ((100vw - 1200 * 1px) / (1600 - 1200))), 135px);
   background-color: #FAFAFA;
 }
 
-section.gallery > div {
+body.homepage section.gallery > div {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 calc(100% / 3);
           flex: 1 0 calc(100% / 3);
@@ -680,7 +688,7 @@ section.gallery > div {
 }
 
 @media (max-width: 450px) {
-  section.gallery {
+  body.homepage section.gallery {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -688,9 +696,145 @@ section.gallery > div {
   }
 }
 
-footer {
-  background-color: #2C2C2C;
-  color: #FAFAFA;
-  padding: 5px;
+/* ~~~~~~~~~~~~~~~~~~~~ CONTACT PAGE ~~~~~~~~~~~~~~~~~~~~ */
+body.contact-page header {
+  width: 100%;
+  height: clamp(305px, calc(305 * 1px + (576 - 305) * ((100vw - 850 * 1px) / (1600 - 850))), 576px);
+  background: url(../assets/contact-header.jpg) 35% bottom;
+  background-size: cover;
+  position: relative;
   text-align: center;
+}
+
+body.contact-page header > span {
+  display: block;
+  position: relative;
+  top: clamp(100px, calc(100 * 1px + (200 - 100) * ((100vw - 850 * 1px) / (1600 - 850))), 200px);
+  padding-left: clamp(50px, calc(50 * 1px + (100 - 50) * ((100vw - 450 * 1px) / (1600 - 450))), 100px);
+  margin: 0 auto;
+  z-index: 1;
+}
+
+@media (max-width: 450px) {
+  body.contact-page header > span {
+    top: 175px;
+  }
+}
+
+body.contact-page main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  background-color: #EFFDF3;
+  padding-bottom: clamp(30px, calc(30 * 1px + (200 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 200px);
+  padding-left: clamp(30px, calc(30 * 1px + (150 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 150px);
+  padding-right: clamp(30px, calc(30 * 1px + (60 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 60px);
+  margin-top: clamp(-200px, calc(-200 * 1px + (-50 - -200) * ((100vw - 1600 * 1px) / (850 - 1600))), -50px);
+}
+
+body.contact-page main address {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 15%;
+          flex: 1 0 15%;
+  min-width: 260px;
+  position: relative;
+  padding-right: 30px;
+}
+
+body.contact-page main address i:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+body.contact-page main address span {
+  display: block;
+}
+
+body.contact-page main div.contact-form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 60%;
+          flex: 1 0 60%;
+  min-width: 500px;
+  background-color: #FAFAFA;
+  padding: 40px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  -webkit-box-shadow: -30px 30px #FDFA69;
+          box-shadow: -30px 30px #FDFA69;
+  z-index: 1;
+}
+
+body.contact-page main div.contact-form label {
+  height: 0;
+  overflow: hidden;
+}
+
+body.contact-page main div.contact-form input, body.contact-page main div.contact-form textarea {
+  background-color: #FAFAFA;
+  padding: 10px;
+  border: 2px solid #4CEEA7;
+  margin: 20px 10px;
+}
+
+body.contact-page main div.contact-form input {
+  display: inline-block;
+  width: calc(50% - 23px);
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+body.contact-page main div.contact-form textarea, body.contact-page main div.contact-form button {
+  width: calc(100% - 20px);
+}
+
+body.contact-page main div.contact-form textarea {
+  height: 250px;
+  resize: none;
+}
+
+body.contact-page main div.contact-form button {
+  margin: 20px 10px 10px;
+}
+
+@media (max-width: 850px) {
+  body.contact-page main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  body.contact-page main address {
+    width: 100%;
+    padding-left: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  body.contact-page main address span:not(.email) {
+    display: inline-block;
+  }
+  body.contact-page main div.contact-form {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  body.contact-page main {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  body.contact-page main div.contact-form {
+    padding: 30px;
+    margin-bottom: 0;
+    margin-left: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  body.contact-page main div.contact-form input, body.contact-page main div.contact-form textarea, body.contact-page main div.contact-form button {
+    width: 100%;
+    margin: 20px 0;
+  }
 }
