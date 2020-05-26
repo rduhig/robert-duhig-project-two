@@ -7,8 +7,107 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
     <title>Captured - Blog</title>
+    <script src="https://kit.fontawesome.com/7b918aa7b2.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
+<body class="blog-page">
+    <div class="wrapper">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <header class="sub-page">
+            <nav class="drop-down-menu">
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="drop-down-links">
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./index.html#about">ABOUT</a></li>
+                    <li><span class="current-page">BLOG</span></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <nav class="menu-bar">
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./index.html#about">ABOUT</a></li>
+                    <li><span class="current-page">BLOG</span></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <span><h2>BLOG</h2></span>
+        </header>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="flex-container">
+            <main>
+                <article>
+                    <img src="assets/blog-post-image.jpg" alt="A photographer taking photographs in a meadow.">
+                    <div class="article-text">
+                        <h3>FINDING GREAT LOCATIONS</h3>
+                        <span>Monday May 4th, 2019 by Dieula</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam necessitatibus minus fugiat excepturi blanditiis quam, illum, ea minima exercitationem facere asperiores modi eos. Architecto, nesciunt.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor alias praesentium perspiciatis facilis. Fugiat beatae natus totam incidunt molestias illo accusantium odio vel omnis numquam minima possimus fuga, libero quo ducimus harum nobis esse labore.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eaque, unde alias nobis fugiat optio sed. Distinctio nihil veniam reiciendis aliquid impedit est, animi pariatur molestiae ex. Consequuntur deleniti exercitationem dolore, blanditiis magnam molestiae omnis nulla voluptatum quam laudantium cumque placeat assumenda vero maxime error animi ipsam atque culpa porro quia sed et consectetur? Nisi blanditiis fugit ex laborum doloribus distinctio sequi inventore consequatur expedita nam! Impedit repudiandae incidunt aut consectetur iusto iure mollitia repellendus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel natus nostrum ab in corporis consequuntur!</p>
+                    </div>
+                </article>
+                <section class="comments">
+                    <h4>COMMENTS:</h4>
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <img src="assets/comment-1.jpg" alt="User Jeremy's avatar.">
+                        </div>
+                        <div class="comment-text">
+                            <span>Tuesday October 9th, 2018 by Jeremy</span>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, vero. Ipsam asperiores omnis tempore, magnam hic qui voluptatibus eos soluta, deserunt accusantium consectetur laborum! Officia!</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <img src="assets/comment-2.jpg" alt="User Julia's avatar.">
+                        </div>
+                        <div class="comment-text">
+                            <span>Wednesday October 10th, 2018 by Julia</span>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia animi et corrupti debitis quos suscipit incidunt, molestias amet beatae. Eligendi.</p>
+                        </div>
+                    </div>
+                    <form>
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" id="name" placeholder="Name">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input type="email" id="email" placeholder="Email address">
+                        <textarea placeholder="Comment"></textarea>
+                        <button type="submit">POST COMMENT</button>
+                    </form>
+                </section>
+            </main>
+            <aside>
+                <img src="assets/side-blog-image.jpg" alt="A person holds a camera lens in the air.">
+                <div class="aside-container clearfix">
+                    <div class="aside-left">
+                        <h5>ABOUT CAPTURED</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, commodi. Laudantium, minus. <em>Find out more.</em></p>
+                    </div>
+                    <div class="aside-right">
+                        <h5>RECENT POSTS</h5>
+                        <ul>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <footer>
+            <span>Copyright &copy; 2018 HackerYou</span>
+        </footer>
+    </div>
 </body>
 </html>

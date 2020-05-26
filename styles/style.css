@@ -244,7 +244,7 @@ body {
   color: #2C2C2C;
 }
 
-h1, h2, h3, h4, a, button, .current-page, .email {
+h1, h2, h3, h4, h5, a, button, .current-page {
   font-family: "Playfair Display", serif;
 }
 
@@ -265,6 +265,11 @@ h3 {
 h4 {
   font-size: clamp(22px, calc(22 * 1px + (32 - 22) * ((100vw - 800 * 1px) / (1600 - 800))), 32px);
   letter-spacing: 1px;
+}
+
+h5 {
+  font-size: clamp(20px, calc(20 * 1px + (26 - 20) * ((100vw - 800 * 1px) / (1600 - 800))), 26px);
+  letter-spacing: 1.1px;
 }
 
 a, .current-page {
@@ -289,12 +294,6 @@ button {
 
 i {
   font-size: 32px;
-}
-
-.email {
-  font-size: clamp(20px, calc(20 * 1px + (26 - 20) * ((100vw - 800 * 1px) / (1600 - 800))), 26px);
-  letter-spacing: 1.1px;
-  margin: 20px 0;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ SHARED STYLES ~~~~~~~~~~~~~~~~~~~~ */
@@ -370,6 +369,30 @@ nav.drop-down-menu ul.drop-down-links {
   }
   nav.drop-down-menu {
     display: block;
+  }
+}
+
+header.sub-page {
+  width: 100%;
+  height: clamp(305px, calc(305 * 1px + (576 - 305) * ((100vw - 850 * 1px) / (1600 - 850))), 576px);
+  background-position: 35% bottom;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+
+header.sub-page > span {
+  display: block;
+  position: relative;
+  top: clamp(100px, calc(100 * 1px + (200 - 100) * ((100vw - 850 * 1px) / (1600 - 850))), 200px);
+  padding-left: clamp(50px, calc(50 * 1px + (100 - 50) * ((100vw - 450 * 1px) / (1600 - 450))), 100px);
+  margin: 0 auto;
+  z-index: 1;
+}
+
+@media (max-width: 450px) {
+  header.sub-page > span {
+    top: 175px;
   }
 }
 
@@ -696,35 +719,206 @@ body.homepage section.gallery > div {
   }
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~ CONTACT PAGE ~~~~~~~~~~~~~~~~~~~~ */
-body.contact-page header {
-  width: 100%;
-  height: clamp(305px, calc(305 * 1px + (576 - 305) * ((100vw - 850 * 1px) / (1600 - 850))), 576px);
-  background: url(../assets/contact-header.jpg) 35% bottom;
-  background-size: cover;
-  position: relative;
-  text-align: center;
+/* ~~~~~~~~~~~~~~~~~~~~ BLOG PAGE ~~~~~~~~~~~~~~~~~~~~ */
+body.blog-page header {
+  background-image: url(../assets/blog-header.jpg);
 }
 
-body.contact-page header > span {
-  display: block;
-  position: relative;
-  top: clamp(100px, calc(100 * 1px + (200 - 100) * ((100vw - 850 * 1px) / (1600 - 850))), 200px);
-  padding-left: clamp(50px, calc(50 * 1px + (100 - 50) * ((100vw - 450 * 1px) / (1600 - 450))), 100px);
-  margin: 0 auto;
+body.blog-page header span {
+  padding-right: 10%;
+}
+
+body.blog-page div.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  background-color: #EFFDF3;
+  padding: 60px 0;
+}
+
+body.blog-page div.flex-container main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  margin-top: clamp(-300px, calc(-300 * 1px + (-90 - -300) * ((100vw - 1600 * 1px) / (850 - 1600))), -90px);
   z-index: 1;
 }
 
-@media (max-width: 450px) {
-  body.contact-page header > span {
-    top: 175px;
+body.blog-page div.flex-container main article img {
+  width: calc(100% - 30px);
+  margin-left: 30px;
+  -webkit-box-shadow: -30px 30px #FDFA69;
+          box-shadow: -30px 30px #FDFA69;
+}
+
+body.blog-page div.flex-container main article div.article-text {
+  padding: 60px 0 0 30px;
+  border-bottom: 2px solid #FDFA69;
+  border-left: 2px solid #FDFA69;
+  margin-right: 90px;
+}
+
+body.blog-page div.flex-container main section.comments {
+  padding: 40px 60px 30px 30px;
+}
+
+body.blog-page div.flex-container main section.comments input, body.blog-page div.flex-container main section.comments textarea {
+  background-color: #EFFDF3;
+  padding: 10px;
+  border: 2px solid #4CEEA7;
+  margin: 20px 10px;
+}
+
+body.blog-page div.flex-container main section.comments input {
+  display: inline-block;
+  width: calc(50% - 23px);
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+body.blog-page div.flex-container main section.comments textarea, body.blog-page div.flex-container main section.comments button {
+  width: calc(100% - 20px);
+}
+
+body.blog-page div.flex-container main section.comments textarea {
+  height: 200px;
+  resize: none;
+}
+
+body.blog-page div.flex-container main section.comments button {
+  margin: 20px 10px 10px;
+}
+
+body.blog-page div.flex-container main section.comments div.comment {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+      grid-template-columns: 100px 1fr;
+  gap: 30px;
+  margin: 30px 0 60px;
+}
+
+body.blog-page div.flex-container main section.comments div.comment p {
+  margin: 10px 0;
+}
+
+body.blog-page div.flex-container aside {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 25%;
+          flex: 1 0 25%;
+  position: relative;
+  padding-right: 60px;
+}
+
+body.blog-page div.flex-container aside img {
+  position: relative;
+  z-index: 1;
+}
+
+body.blog-page div.flex-container aside div.aside-container {
+  background-color: #FAFAFA;
+  width: 70%;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  padding: 0 20px;
+  padding-top: clamp(210px, calc(210 * 1px + (460 - 210) * ((100vw - 850 * 1px) / (1600 - 850))), 460px);
+}
+
+body.blog-page div.flex-container aside div.aside-container ul {
+  margin: 30px 0;
+}
+
+body.blog-page div.flex-container aside div.aside-container ul li {
+  position: relative;
+  padding-left: 20px;
+}
+
+body.blog-page div.flex-container aside div.aside-container ul li::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #4CEEA7;
+}
+
+@media (max-width: 850px) {
+  body.blog-page div.flex-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-bottom: 0;
   }
+  body.blog-page div.flex-container main article div.article-text {
+    margin-right: 30px;
+  }
+  body.blog-page div.flex-container main section.comments {
+    padding-right: 30px;
+  }
+  body.blog-page div.flex-container main section.comments div.comment {
+    margin-bottom: 30px;
+  }
+  body.blog-page div.flex-container aside {
+    padding-right: 0;
+  }
+  body.blog-page div.flex-container aside img {
+    width: calc(100% - 30px);
+    -webkit-box-shadow: 30px 30px #FAFAFA;
+            box-shadow: 30px 30px #FAFAFA;
+  }
+  body.blog-page div.flex-container aside div.aside-container {
+    width: auto;
+    position: static;
+    padding: 0 60px;
+    margin-top: 30px;
+  }
+  body.blog-page div.flex-container aside div.aside-container div.aside-right, body.blog-page div.flex-container aside div.aside-container div.aside-left {
+    width: 50%;
+    float: left;
+  }
+  body.blog-page div.flex-container aside div.aside-container div.aside-right {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  body.blog-page div.flex-container main section.comments input, body.blog-page div.flex-container main section.comments textarea, body.blog-page div.flex-container main section.comments button {
+    width: 100%;
+    margin: 20px 0;
+  }
+  body.blog-page div.flex-container aside div.aside-container {
+    padding: 0 30px;
+  }
+  body.blog-page div.flex-container aside div.aside-container div.aside-right, body.blog-page div.flex-container aside div.aside-container div.aside-left {
+    width: 100%;
+  }
+  body.blog-page div.flex-container aside div.aside-container div.aside-right {
+    padding-left: 0;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ CONTACT PAGE ~~~~~~~~~~~~~~~~~~~~ */
+body.contact-page header {
+  background-image: url(../assets/contact-header.jpg);
 }
 
 body.contact-page main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
@@ -732,24 +926,6 @@ body.contact-page main {
   padding-bottom: clamp(30px, calc(30 * 1px + (200 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 200px);
   padding-left: clamp(30px, calc(30 * 1px + (150 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 150px);
   padding-right: clamp(30px, calc(30 * 1px + (60 - 30) * ((100vw - 850 * 1px) / (1600 - 850))), 60px);
-  margin-top: clamp(-200px, calc(-200 * 1px + (-50 - -200) * ((100vw - 1600 * 1px) / (850 - 1600))), -50px);
-}
-
-body.contact-page main address {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 15%;
-          flex: 1 0 15%;
-  min-width: 260px;
-  position: relative;
-  padding-right: 30px;
-}
-
-body.contact-page main address i:not(:last-of-type) {
-  margin-right: 20px;
-}
-
-body.contact-page main address span {
-  display: block;
 }
 
 body.contact-page main div.contact-form {
@@ -759,16 +935,12 @@ body.contact-page main div.contact-form {
   min-width: 500px;
   background-color: #FAFAFA;
   padding: 40px;
+  margin-top: clamp(-200px, calc(-200 * 1px + (-50 - -200) * ((100vw - 1600 * 1px) / (850 - 1600))), -50px);
   margin-bottom: 30px;
   margin-left: 30px;
   -webkit-box-shadow: -30px 30px #FDFA69;
           box-shadow: -30px 30px #FDFA69;
   z-index: 1;
-}
-
-body.contact-page main div.contact-form label {
-  height: 0;
-  overflow: hidden;
 }
 
 body.contact-page main div.contact-form input, body.contact-page main div.contact-form textarea {
@@ -799,12 +971,32 @@ body.contact-page main div.contact-form button {
   margin: 20px 10px 10px;
 }
 
+body.contact-page main address {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 15%;
+          flex: 1 0 15%;
+  min-width: 260px;
+  padding-right: 30px;
+}
+
+body.contact-page main address i:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+body.contact-page main address h5 {
+  margin: 20px 0;
+}
+
+body.contact-page main address span {
+  display: block;
+}
+
 @media (max-width: 850px) {
   body.contact-page main {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   body.contact-page main address {
     width: 100%;

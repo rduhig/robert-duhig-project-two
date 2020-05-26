@@ -14,7 +14,7 @@
 
         <!-- ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ -->
 
-        <header>
+        <header class="sub-page">
             <nav class="drop-down-menu">
                 <input type="checkbox" id="toggle">
                 <label for="toggle">
@@ -38,15 +38,25 @@
             <span><h2>GET IN TOUCH</h2></span>
         </header>
 
-        <!-- ~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~ -->
 
         <main>
+            <div class="contact-form">
+                <form>
+                    <label for="name" class="sr-only">Name</label>
+                    <input type="text" id="name" placeholder="Name">
+                    <label for="email" class="sr-only">Email address</label>
+                    <input type="email" id="email" placeholder="Email address">
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
             <address>
                 <i class="fab fa-facebook-f"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-whatsapp"></i>
-                <span class="email">INFO@EMAIL.COM</span>
+                <h5>INFO@EMAIL.COM</h5>
                 <div class="address">
                     <span>123 - 456 - 7890</span>
                     <span>123 Queen Street West, Unit 10</span>
@@ -54,16 +64,6 @@
                     <span>M5V 2D5</span>
                 </div>
             </address>
-            <div class="contact-form">
-                <form>
-                    <input type="text" id="name" placeholder="Name">
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="email" id="email" placeholder="Email address">
-                    <label for="email" class="sr-only">Email address</label>
-                    <textarea placeholder="Message"></textarea>
-                    <button type="submit">SUBMIT</button>
-                </form>
-            </div>
         </main>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ -->

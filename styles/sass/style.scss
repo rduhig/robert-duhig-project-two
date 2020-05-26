@@ -89,6 +89,29 @@ nav.drop-down-menu {
     }
 }
 
+header.sub-page {
+    width: 100%;
+    @include scale-size("height", 576, 305, 1600, 850);
+    background-position: 35% bottom;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+
+
+    & > span {
+        display: block;
+        position: relative;
+        @include scale-size("top", 200, 100, 1600, 850);
+        @include scale-size("padding-left", 100, 50, 1600, 450);
+        margin: 0 auto;
+        z-index: 1;
+
+        @media (max-width: $mobile-breakpoint) {
+            top: 175px;
+        }
+    }
+}
+
 footer {
     background-color: $black;
     color: $white;
@@ -346,70 +369,227 @@ body.homepage {
     }
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ BLOG PAGE ~~~~~~~~~~~~~~~~~~~~ */
+
+body.blog-page {
+    header {
+        background-image: url(../assets/blog-header.jpg);
+
+        span {
+            padding-right: 10%;
+        }
+    }
+
+    div.flex-container {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: $off-white;
+        padding: 60px 0;
+
+        main {
+            flex: 1 0 50%;
+            @include scale-size("margin-top", -90, -300, 850, 1600);
+            z-index: 1;
+
+            article {
+                img {
+                    width: calc(100% - 30px);
+                    margin-left: 30px;
+                    box-shadow: -30px 30px $shadow-color;
+                }
+
+                div.article-text {
+                    padding: 60px 0 0 30px;
+                    border-bottom: 2px solid $shadow-color;
+                    border-left: 2px solid $shadow-color;
+                    margin-right: 90px;
+                }
+            }
+
+            section.comments {
+                padding: 40px 60px 30px 30px;
+
+                input, textarea {
+                    background-color: $off-white;
+                    padding: 10px;
+                    border: 2px solid $decoration-color;
+                    margin: 20px 10px;
+                }
+    
+                input {
+                    display: inline-block;
+                    width: calc(50% - 23px);
+                    border-top: 0;
+                    border-right: 0;
+                    border-left: 0;
+                }
+    
+                textarea, button {
+                    width: calc(100% - 20px);
+                }
+    
+                textarea {
+                    height: 200px;
+                    resize: none;
+                }
+    
+                button {
+                    margin: 20px 10px 10px;
+                }
+
+                div.comment {
+                    display: grid;
+                    grid-template-columns: 100px 1fr;
+                    gap: 30px;
+                    margin: 30px 0 60px;
+
+                    p {
+                        margin: 10px 0;
+                    }
+                }
+            }
+        }
+
+        aside {
+            flex: 1 0 25%;
+            position: relative;
+            padding-right: 60px;
+
+            img {
+                position: relative;
+                z-index: 1;
+            }
+
+            div.aside-container {
+                background-color: $white;
+                width: 70%;
+                position: absolute;
+                top: 20px;
+                right: 40px;
+                padding: 0 20px;
+                @include scale-size("padding-top", 460, 210, 1600, 850);
+
+                ul {
+                    margin: 30px 0;
+                    
+                    li {
+                        position: relative;
+                        padding-left: 20px;
+                    }
+
+                    li::before {
+                        content: "";
+                        position: absolute;
+                        top: 15px;
+                        left: 0;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: $decoration-color;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $tablet-breakpoint) {
+            flex-direction: column;
+            padding-bottom: 0;
+
+            main {
+                article {
+                    div.article-text {
+                        margin-right: 30px;
+                    }
+                }
+
+                section.comments {
+                    padding-right: 30px;
+
+                    div.comment {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+
+            aside {
+                padding-right: 0;
+
+                img {
+                    width: calc(100% - 30px);
+                    box-shadow: 30px 30px $white;
+                }
+
+                div.aside-container {
+                    width: auto;
+                    position: static;
+                    padding: 0 60px;
+                    margin-top: 30px;
+
+                    div.aside-right, div.aside-left {
+                        width: 50%;
+                        float: left;
+                    }
+
+                    div.aside-right {
+                        padding-left: 30px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            main {
+                section.comments {
+                    input, textarea, button {
+                        width: 100%;
+                        margin: 20px 0;
+                    }
+                }
+            }
+
+            aside {
+                div.aside-container {
+                    padding: 0 30px;
+
+                    div.aside-right, div.aside-left {
+                        width: 100%;
+                    }
+
+                    div.aside-right {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~ CONTACT PAGE ~~~~~~~~~~~~~~~~~~~~ */
 
 body.contact-page {
     header {
-        width: 100%;
-        @include scale-size("height", 576, 305, 1600, 850);
-        background: url(../assets/contact-header.jpg) 35% bottom;
-        background-size: cover;
-        position: relative;
-        text-align: center;
-
-    
-        & > span {
-            display: block;
-            position: relative;
-            @include scale-size("top", 200, 100, 1600, 850);
-            @include scale-size("padding-left", 100, 50, 1600, 450);
-            margin: 0 auto;
-            z-index: 1;
-
-            @media (max-width: $mobile-breakpoint) {
-                top: 175px;
-            }
-        }
+        background-image: url(../assets/contact-header.jpg);
     }
 
     main {
         display: flex;
+        flex-direction: row-reverse;
         align-items: end;
         background-color: $off-white;
         @include scale-size("padding-bottom", 200, 30, 1600, 850);
         @include scale-size("padding-left", 150, 30, 1600, 850);
         @include scale-size("padding-right", 60, 30, 1600, 850);
-        @include scale-size("margin-top", -50, -200, 850, 1600);
-
-        address {
-            flex: 1 0 15%;
-            min-width: 260px;
-            position: relative;
-            padding-right: 30px;
-
-            i:not(:last-of-type) {
-                margin-right: 20px;
-            }
-
-            span {
-                display: block;
-            }
-        }
 
         div.contact-form {
             flex: 1 0 60%;
             min-width: 500px;
             background-color: $white;
             padding: 40px;
+            @include scale-size("margin-top", -50, -200, 850, 1600);
             margin-bottom: 30px;
             margin-left: 30px;
             box-shadow: -30px 30px $shadow-color;
             z-index: 1;
-
-            label {
-                height: 0;
-                overflow: hidden;
-            }
 
             input, textarea {
                 background-color: $white;
@@ -440,8 +620,26 @@ body.contact-page {
             }
         }
 
+        address {
+            flex: 1 0 15%;
+            min-width: 260px;
+            padding-right: 30px;
+
+            i:not(:last-of-type) {
+                margin-right: 20px;
+            }
+
+            h5 {
+                margin: 20px 0;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
         @media (max-width: $tablet-breakpoint) {
-            flex-direction: column-reverse;
+            flex-direction: column;
 
             address {
                 width: 100%;

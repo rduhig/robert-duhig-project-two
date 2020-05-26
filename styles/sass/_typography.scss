@@ -7,7 +7,7 @@ body {
     color: $black;
 }
 
-h1, h2, h3, h4, a, button, .current-page, .email {
+h1, h2, h3, h4, h5, a, button, .current-page {
     font-family: $heading-font;
 }
 
@@ -28,6 +28,11 @@ h3 {
 h4 {
     @include scale-size("font-size", 32, 22, 1600, 800);
     letter-spacing: 1px;
+}
+
+h5 {
+    @include scale-size("font-size", 26, 20, 1600, 800);
+    letter-spacing: 1.1px;
 }
 
 a, .current-page {
@@ -51,10 +56,4 @@ button {
 
 i {
     font-size: 32px;
-}
-
-.email {
-    @include scale-size("font-size", 26, 20, 1600, 800);
-    letter-spacing: 1.1px;
-    margin: 20px 0;
 }
